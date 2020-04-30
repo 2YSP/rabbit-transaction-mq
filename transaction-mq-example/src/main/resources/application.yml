@@ -1,0 +1,32 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: starter-test
+  redis:
+    host: 127.0.0.1
+    port: 6379
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    listener:
+      retry:
+        enabled: true
+        max-attempts: 10
+        initial-interval: 3000
+    username: admin
+    password: 1234
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/nacos_test?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&serverTimezone=GMT%2B8
+    username: root
+    password: 1234
+
+mybatis:
+  mapper-locations: classpath:com/in/sp/mapper/*.xml
+transaction:
+  mq:
+    business-key: order
+    batch-retry-limit: 1000
+
